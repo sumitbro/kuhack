@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="bs-example">
+    <h1> Donner Profile</h1>
+    <!-- Card with default left text alignment -->
+    
+    
+    <div class="card" style="width: 50rem;">
+        <div class="card-body">
+            <h2 class="card-title">{{object.first_name}} {{object.last_name}}</h2>
+            <b>Address:</b> {{object.district}}<br><br>
+            <b>City:</b> {{object.city}}<br><br>
+            <b>Date of Birth:</b> {{object.dob}}<br><br>
+
+
+            <b>Blood Group:</b> A+ <br><br>
+            <b>Gender</b> Male 
+            <br><br>
+            
+          
+            <a href="#" class="btn btn-primary">Call Now</a>
+        </div>
+    </div>
+
+    
+    
+</div>
+
+
+
+{% endblock %}

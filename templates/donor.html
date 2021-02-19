@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="bs-example">
+    <h1> Donner List</h1>
+    <!-- Card with default left text alignment -->
+    
+    {% for data in data1 %}
+    <div class="card" style="width: 50rem;">
+        <div class="card-body">
+            <h2 class="card-title">{{data.first_name}} {{data.last_name}}</h2>
+            <b>Address:</b> {{data.district}}<br>
+            <b> Blood Group:</b> A+
+            <br><br>
+            
+            <a href="/donor/{{data.id}}" class="btn btn-primary">View Details</a>
+            <a href="#" class="btn btn-primary">Call Now</a>
+        </div>
+    </div>
+    {% endfor %}
+    
+    
+</div>
+
+{% endblock %}

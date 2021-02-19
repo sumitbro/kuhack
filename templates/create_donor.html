@@ -2,7 +2,7 @@
 {% block content %}
 <div class="bs-example">
     <h1 class="border-bottom pb-3 mb-4">Donor Registration Form</h1>
-    <form class="needs-validation" action="/create_donor" method="post" novalidate>
+    <form class="needs-validation" action="/create_donor" method="POST" novalidate>
         {% csrf_token %}
         <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="firstName">First Name:</label>
@@ -32,6 +32,23 @@
             
             
         </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Blood Group</label>
+            <div class="col-sm-3">
+                <select class="custom-select" name="blood" required>
+                    <option value="">Select</option>
+                    <option value="1">A+</option>
+                    <option value="2">A-</option>
+                    <option value="3">B+</option>
+                    <option value="4">B-</option>
+                    <option value="5">O+</option>
+                    <option value="6">O-</option>
+                    <option value="7">AB+</option>
+                    <option value="8">AB-</option>
+                </select>
+            </div>
+        </div>
+
         
         <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="postalAddress">District</label>

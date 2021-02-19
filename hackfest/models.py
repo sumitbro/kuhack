@@ -29,3 +29,19 @@ class Donor(models.Model):
 
     def __str__(self):
         return self.first_name
+
+
+
+class BloodBank(models.Model):
+    name= models.CharField(max_length=200, null=True)
+    address= models.CharField(max_length=200, null=True)
+    city= models.CharField(max_length=200, null=True)
+    contact= models.CharField(max_length=50000000, null=True)
+    email= models.EmailField(null=True)
+    website= models.CharField(max_length=50000)
+    image= models.ImageField(upload_to= 'pics')
+   
+
+
+    def __str__(self):
+        return self.name
