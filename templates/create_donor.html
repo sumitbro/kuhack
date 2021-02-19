@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bs-example">
+    <h1 class="border-bottom pb-3 mb-4">Donor Registration Form</h1>
+    <form class="needs-validation" action="/create_donor" method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="firstName">First Name:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="firstName" placeholder="First Name" name="first_name" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="lastName">Last Name:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="last_name" required>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="phoneNumber">Mobile Number:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" name="contact" required>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Date of Birth:</label>
+            <div class="col-sm-4">
+                <input type="Date" class="form-control" id="phoneNumber" placeholder="Date of Birth" name="dob" required>
+            </div>
+            
+            
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="postalAddress">District</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="postalAddress" placeholder="District" name="district" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="postalAddress">City/town</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="postalAddress" placeholder="City/Town" name="city" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="number">Ward Number</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="number" placeholder="Ward number" name="ward" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Gender:</label>
+            <div class="col-sm-9 mt-2" >
+                <label class="mb-0 mr-3" >
+                    <input type="radio" class="mr-1" name="gender"> Male
+                </label>
+                <label class="mb-0 mr-3">
+                    <input type="radio" class="mr-1" name="gender"> Female 
+                </label> 
+                
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-3">
+                <label class="checkbox-inline">
+                    <input type="checkbox" class="mr-1" value="agree"> I agree to the <a href="#">Terms and Conditions</a>.
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-9 offset-sm-3">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-secondary" value="Reset">
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{%extends 'base.html' %}
+    {% block content %}
+
+    <div id="promo">
+        <div class="jumbotron">
+            <h1>Welcome TO Blood Donor</h1>
+            <p class="lead">Search Doner near your city</p>
+            <div class="container">
+                <div class="row">
+                    <form class="col-lg-6" style="float:none;margin:auto;">
+                        <label>Select Blood Group</label>
+                        
+                        <select class="form-control select2">
+                           <option>A+</option> 
+                           <option>A-</option> 
+                           <option>B+</option> 
+                           <option>B-</option> 
+                           <option>O+</option> 
+                           <option>O-</option> 
+                           <option>AB+</option> 
+                           <option>AB-</option> 
+                        </select>
+                        <br>
+                        <div class="btn btn-primary">Search</div>
+                       
+                        
+                        
+                        
+                    </form>
+                 </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    
+
+
+
+        
+        <script>
+            $('.select2').select2();
+        </script>
+        
+
+        
+    
+    {% endblock %}
