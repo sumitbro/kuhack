@@ -10,17 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
+from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_@+i=5gikddq0^&gqc-&j(s^x=i=#twie#hpu+*)wt0ay#)z1='
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,12 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    'django.contrib.gis',
+    # 'django.contrib.sites',
 
+<<<<<<< HEAD
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+=======
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'crispy_forms',
+>>>>>>> dd9bd6f6330f38a9ed5a3136d368b892f0160af3
     'hackfest',
 ]
 
@@ -61,7 +70,7 @@ ROOT_URLCONF = 'donner.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [ BASE_DIR / 'templates' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,8 +91,16 @@ WSGI_APPLICATION = 'donner.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE' : 'django.contrib.gis.db.backends.postgis',
+        'USER' : config('USER'),
+        'PASSWORD': config('PASSWORD'),
+        'HOST' : config('HOST'),
+        'PORT' : config('PORT'),
+        'NAME' : config('NAME'),
+        'OPTIONS': {
+            'sslmode': 'verify-full',
+            'sslrootcert': BASE_DIR / 'cc-ca.crt',
+        },
     }
 }
 
@@ -127,32 +144,36 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS= [os.path.join(BASE_DIR,'static')]
-STATIC_ROOT= os.path.join(BASE_DIR, 'assets')
+STATICFILES_DIRS= [BASE_DIR / 'static']
+STATIC_ROOT= BASE_DIR / 'assets'
 
 
 
 
 # All auth
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     # 'allauth.account.auth_backends.AuthenticationBackend',
+# ]
 
-SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
+# SITE_ID = 1
+# LOGIN_REDIRECT_URL = '/'
 
 
 
 MEDIA_URL= '/media/'
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT= BASE_DIR / 'media'
 
 
 # crispy_forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # for dummy email confirmation message 
+<<<<<<< HEAD
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 
+=======
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+>>>>>>> dd9bd6f6330f38a9ed5a3136d368b892f0160af3
