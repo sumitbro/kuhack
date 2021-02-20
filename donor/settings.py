@@ -79,8 +79,16 @@ WSGI_APPLICATION = 'donor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE' : 'django.contrib.gis.db.backends.postgis',
+        'USER' : config('USER'),
+        'PASSWORD': config('PASSWORD'),
+        'HOST' : 'free-tier3.aws-us-west-2.cockroachlabs.cloud',
+        'PORT' : config('PORT'),
+        'NAME' : config('NAME'),
+        'OPTIONS': {
+            'sslmode': 'verify-full',
+            'sslrootcert': BASE_DIR / 'cc-ca.crt',
+        },
     }
 }
 
@@ -150,3 +158,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # for dummy email confirmation message 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+#for geolocation

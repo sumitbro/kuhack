@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .models import Donor, BloodBank
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+# from django.views.generic import FormView
 
 
 from .models import Donor
@@ -75,5 +76,3 @@ def create_donor(request):
 
     
 
-
-    

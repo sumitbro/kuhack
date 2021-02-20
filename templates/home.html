@@ -10,6 +10,7 @@
 
 
 <div id="promo">
+   
     <div class="jumbotron">
         <h1>Welcome To Blood Finder</h1>
         <p class="lead">Search Donor near your city</p>
@@ -22,17 +23,12 @@
                         {% for blood_group, human_readable in GROUP %}
                         <option value="{{blood_group}}">{{human_readable}}</option>
                         {% endfor %}
-                       <!-- <option>A+</option> 
-                       <option>A-</option> 
-                       <option>B+</option> 
-                       <option>B-</option> 
-                       <option>O+</option> 
-                       <option>O-</option> 
-                       <option>AB+</option> 
-                       <option>AB-</option>  -->
+                       
                     </select>
                     <br>
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <button class="btn btn-primary" type="submit" >Search</button>
+                    <!-- <button onclick="getLocation()">Try It</button> -->
+                    
                    
                     
                     
@@ -53,9 +49,14 @@
 
 <div class="container site-section" id="welcome">
     <h1>Welcome to Easy Blood Finder </h1>
-    <p>Blood Finder is an online blood bank service that works to encourage and inspire people to donate blood and provide fresh blood to needy ones to save their life. Our main objective is to act as a bridge between the blood donor and patient. Welfare of the society is our motto.
+    <p>Blood Finder is an online blood bank service that works to encourage and inspire 
+        people to donate blood and provide fresh blood to needy ones to save their life. 
+        Our main objective is to act as a bridge between the blood donor and patient. 
+        Welfare of the society is our motto.
 
-        This website can match you with a donor near you in fraction of second. You can also register as a donor in this site and save someone’s life. The need is constant, and your contribution is important for a healthy and reliable blood supply.</p>
+        This website can match you with a donor near you in fraction of second. 
+        You can also register as a donor in this site and save someone’s life. 
+        The need is constant, and your contribution is important for a healthy and reliable blood supply.</p>
 </div>
 <div class="dark-section">
     <div class="container site-section" id="why">
@@ -89,7 +90,17 @@
             <div class="thumbnail"><a data-lightbox="cakes" href="assets/img/desert-3.jpg" target="_blank"><img class="img-responsive" src="{% static 'assets/img/image.jpeg' %}"></a></div>
         </div>
     </div>
+   
 </div>
+
+
+
+
+
+
+
+
+
 
 
 {% endblock %}
