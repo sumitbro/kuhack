@@ -1,4 +1,4 @@
-from django.contrib.gis.db import models
+from django.db import models
 
 # Create your models here.
 class Donor(models.Model):
@@ -30,7 +30,7 @@ class Donor(models.Model):
     district= models.CharField(max_length=100)
     city= models.CharField(max_length=100)
     ward= models.IntegerField(null=True)
-    location = models.PointField()
+    # location = models.PointField()
 
     def __str__(self):
         return self.first_name
