@@ -4,15 +4,34 @@ from django.http import HttpResponse
 from .models import Donor, BloodBank
 from django.contrib.auth.decorators import login_required
 
+from .models import Donor
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'GROUP': Donor.BLOOD_GROUP})
     
     
 def profile(request):
     return render(request, 'profile.html')
+
+def search(request):
+    # print(dir(request.GET))
+    # print(request.GET.get('blood'))
+    blood_group = request.GET.get('blood')
+    data = Donor.objects.filter(blood=blood_group)
+    # print(Donor.objects.all())
+    # print(data)
+    return render(request, 'donor.html', {'data1': data})
+
+# class SearchView(ListView):
+#     model = Donor
+#     template_name = 'donor.html'
+
+#     def get_queryset(self, *args, **kwargs):
+#         # request = self.request
+#         print(args, kwargs)
+#         return Donor.objects.all()
     
 
 # def donner(request):

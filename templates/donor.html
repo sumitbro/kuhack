@@ -12,11 +12,11 @@
         <div class="card-body">
             <h2 class="card-title">{{data.first_name}} {{data.last_name}}</h2>
             <b>Address:</b> {{data.district}}<br>
-            <b> Blood Group:</b> A+
+            <b> Blood Group:</b> {{data.blood}}
             <br><br>
             
             <a href="/donor/{{data.id}}" class="btn btn-primary">View Details</a>
-            <a href="#" class="btn btn-primary">Call Now</a>
+            <a href="tel:{{data.contact}}" class="btn btn-primary">Call Now</a>
         </div>
     </div>
     {% endfor %}
