@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+
+
+<div id="promo">
+    <div class="jumbotron">
+        <h1>Welcome TO Blood Finder</h1>
+        <p class="lead">Search Donor near your city</p>
+        <div class="container">
+            <div class="row">
+                <form class="col-lg-6" style="float:none;margin:auto;">
+                    <label>Select Blood Group</label>
+                    
+                    <select class="form-control select2">
+                       <option>A+</option> 
+                       <option>A-</option> 
+                       <option>B+</option> 
+                       <option>B-</option> 
+                       <option>O+</option> 
+                       <option>O-</option> 
+                       <option>AB+</option> 
+                       <option>AB-</option> 
+                    </select>
+                    <br>
+                    <div class="btn btn-primary">Search</div>
+                   
+                    
+                    
+                    
+                </form>
+             </div>
+        </div>
+
+        
+    </div>
+</div>
+<script>
+    $('.select2').select2();
+</script>
+
+
+
+
+<div class="container site-section" id="welcome">
+    <h1>Welcome to Easy Blood Finder </h1>
+    <p>Blood Finder is an online blood bank service that works to encourage and inspire people to donate blood and provide fresh blood to needy ones to save their life. Our main objective is to act as a bridge between the blood donor and patient. Welfare of the society is our motto.
+
+        This website can match you with a donor near you in fraction of second. You can also register as a donor in this site and save someone’s life. The need is constant, and your contribution is important for a healthy and reliable blood supply.</p>
+</div>
+<div class="dark-section">
+    <div class="container site-section" id="why">
+        <h1>Why Choose Us </h1>
+        <div class="row">
+            <div class="col-md-4 item"><i class="fa fa-help"></i>
+                <h2>Easy Search </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id purus ipsum. Aliquam ac orci eleifend, aliquet felis nec.&nbsp; </p>
+            </div>
+            <div class="col-md-4 item"><i class="fa fa-heart"></i>
+                <h2>Blood Bank Service</h2>
+                <p>Quisque sagittis ligula massa, nec hendrerit felis mollis ultricies. In sagittis semper condimentum.&nbsp; </p>
+            </div>
+            <div class="col-md-4 item"><i class="fa fa-"></i>
+                <h2>Emergency Contact</h2>
+                <p>Aliquam ac orci eleifend, aliquet felis nec, commodo elit. Quisque sagittis ligula massa, nec hendrerit felis mollis ultricies.&nbsp; </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container site-section" id="gallery">
+    <h1>Gallery </h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail"><a data-lightbox="cakes" href="" target="_blank"><img class="img-responsive" src="{% static 'assets/img/1.jpg' %}"></a></div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail"><a data-lightbox="cakes" href="assets/img/desert-2.jpg" target="_blank"><img class="img-responsive" src="{% static 'assets/img/2.jpg' %}"></a></div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail"><a data-lightbox="cakes" href="assets/img/desert-3.jpg" target="_blank"><img class="img-responsive" src="{% static 'assets/img/image.jpeg' %}"></a></div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

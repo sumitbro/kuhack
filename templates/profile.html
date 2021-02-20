@@ -1,10 +1,31 @@
-{% extends 'base.html' %}
+
+ {% extends 'base.html' %}
+
 
 {% block content %}
+<div class="bs-example">
+    <h1> My Profile</h1>
+    <!-- Card with default left text alignment -->
+    
+    
+    <div class="card" style="width: 50rem;">
+        <div class="card-body">
+            <h2 class="card-title">{{request.user}} </h2>
+            <b>Email:</b> {{request.user.email}}<br><br>
+        
+            <b>Blood Group:</b> A+ <br><br>
+            <b>Gender</b> Male 
+            <br><br>
+            
+          
+            
+        </div>
+    </div>
 
-{{ request.user}}
-{{request.user.email}}
+    
+    
+</div>
+
+
 
 {% endblock %}
-
-

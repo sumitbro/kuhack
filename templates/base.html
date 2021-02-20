@@ -17,24 +17,26 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- <link href="static/index.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+<link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+<link rel="stylesheet" href="{% static 'assets/css/Pretty-Footer.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
-<!-- <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
-<link rel="stylesheet" type="text/js" href="{% static 'index.js' %}"> -->
 
 <script src="{% static 'assets/js/jquery.min.js' %}"></script>
 <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
 
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox-plus-jquery.min.js' %}"></script>
 
 
 
-<style>
-    .bs-example{
-        margin: 20px;
-    }
-    body{
-        padding-top: 40px;
-    }
-</style>
+
+
+
+
 
 </head>
 <body>
@@ -42,17 +44,18 @@
 
 <div class="bs-example">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a href="#" class="navbar-brand">Brand</a>
+        <a href="/" class="navbar-brand">BLOOD FINDER</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Profile</a>
-                <a href="#" class="nav-item nav-link">Messages</a>
-                <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/donor" class="nav-item nav-link">Donor List</a>
+                <a href="/blood_bank" class="nav-item nav-link">Blood Bank</a>
+                <a href="/create_donor" class="nav-item nav-link">Become a new Donor</a>
+                
             </div>
             
             <div class="navbar-nav ml-auto">
@@ -66,20 +69,40 @@
 
             </div>
             
-            
-            
-            
-
-        </div>
+         </div>
     </nav>
-
-    <!-- Demo Content -->    
-    
 </div>
 
 
 
 
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="#"><img id="logo" src="assets/img/logo.png"><strong>Mom &amp; Pop's</strong> Blood Finder</a><button data-toggle="collapse" class="navbar-toggle collapsed" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class=""><a href="#">Home </a></li>
+                <li><a href="/donor">Donor List </a></li>
+                <li><a href="/blood_bank">Blood Bank </a></li>
+                <li><a href="/create_donor">Become a new Donor</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="#">Welcome{{request.user}}</a></li>
+                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'account_login' %}">Login</a></li>
+                <li><a href="{% url 'account_signup' %}">SignUp</a></li>
+                {% endif %}
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+ -->
 
 
 
@@ -87,6 +110,62 @@
 
 
     {% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 footer-navigation">
+                    <h3><a href="#">Blood FInder</a></h3>
+                    <p class="company-name"> Blood Finder © 2021 </p>
+                </div>
+                <div class="col-md-4 col-sm-6 footer-contacts">
+                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span">Kathmandu</span> Nepal</p>
+                    </div>
+                    <div><i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-left"> +1 555 123456</p>
+                    </div>
+                    <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="#" target="_blank">support@company.com</a></p>
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>About the company</h4>
+                    <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
+                    <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+<!-- #promo {
+    padding: 40px;
+    text-align: center;
+    background: url(../../assets/img/wp4323537.png);
+    background-size: cover;
+    height: 570px;
+  }
+  
+  #promo .jumbotron {
+    border-radius: 28px;
+    padding: 40px;
+    background-color: rgba(255,255,255,0.75);
+    margin: 0 auto;
+    height: 400px;
+  } -->
+  
+  

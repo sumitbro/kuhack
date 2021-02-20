@@ -2,12 +2,13 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from .models import Donor, BloodBank
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
     
     
 def profile(request):
@@ -34,7 +35,7 @@ class BloodBankListView(ListView):
     template_name= 'blood_bank.html'
     context_object_name= 'data2'
 
-
+@login_required(login_url="/accounts/login" )
 def create_donor(request):
       if request.method=='POST':
         first_name= request.POST['first_name']
@@ -45,9 +46,10 @@ def create_donor(request):
         district= request.POST['district']
         city= request.POST['city']
         ward= request.POST['ward']
-        # gender= request.POST.get['gender']
+        gender= request.POST['gender']
 
-        data=Donor(first_name=first_name, last_name=last_name,contact=contact, dob=dob, blood=blood, district=district, city=city, ward=ward)
+        data=Donor(first_name=first_name, last_name=last_name,contact=contact, dob=dob, blood=blood, district=district, city=city, ward=ward, gender=gender)
+        
         data.save()
         print("data saved")
         return redirect('/')
