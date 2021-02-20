@@ -15,7 +15,8 @@ class Donor(models.Model):
         ('B-', 'B-'),
         ('O+', 'O+'),
         ('O-', 'O-'),
-        ('AB+', 'AB-'),
+        ('AB+', 'AB+'),
+        ('AB-', 'AB-'),
 
     
     )

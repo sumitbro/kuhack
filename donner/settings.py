@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # 'crispy_forms',
+    'crispy_forms',
     'hackfest',
 ]
 
@@ -149,7 +149,10 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
 
 # crispy_forms
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # for dummy email confirmation message 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+

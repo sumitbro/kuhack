@@ -3,6 +3,8 @@ from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from .models import Donor, BloodBank
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 from .models import Donor
 
@@ -20,29 +22,19 @@ def search(request):
     # print(request.GET.get('blood'))
     blood_group = request.GET.get('blood')
     data = Donor.objects.filter(blood=blood_group)
-    # print(Donor.objects.all())
-    # print(data)
-    return render(request, 'donor.html', {'data1': data})
-
-# class SearchView(ListView):
-#     model = Donor
-#     template_name = 'donor.html'
-
-#     def get_queryset(self, *args, **kwargs):
-#         # request = self.request
-#         print(args, kwargs)
-#         return Donor.objects.all()
+    if data:
+        return render(request, 'donor.html', {'data1': data})
+    else:
+        messages.error(request, 'Sorry, No result found!')
+        return redirect('/')
     
 
-# def donner(request):
-#     return render(request, 'donner.html')
 
 class  DonorListView(ListView):
     model= Donor
     template_name='donor.html'
     context_object_name='data1'
-    # ordering= ['-date_posted']
-    # paginate_by=3
+    
 
 
 class  DonorDetailView(DetailView):
@@ -55,6 +47,7 @@ class BloodBankListView(ListView):
     context_object_name= 'data2'
 
 @login_required(login_url="/accounts/login" )
+
 def create_donor(request):
       if request.method=='POST':
         first_name= request.POST['first_name']
@@ -70,6 +63,7 @@ def create_donor(request):
         data=Donor(first_name=first_name, last_name=last_name,contact=contact, dob=dob, blood=blood, district=district, city=city, ward=ward, gender=gender)
         
         data.save()
+        messages.info(request, "Thank you for registering!")
         print("data saved")
         return redirect('/')
       else:
