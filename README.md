@@ -38,7 +38,9 @@ And navigate to `http://127.0.0.1:8000`
 }`
 
 ## Where,
- <user> is the username that you created earlier.
+<user> is the username that you created earlier.
 <password> is the password that you created for the <user>.
 <port> is the port listed in the (sql/tcp) connection string in the SQL shell welcome text. For example, for the connection string (sql/tcp) -postgres://root:admin@127.0.0.1:61011?sslmode=require, the port is 61011.
+
+![111](https://user-images.githubusercontent.com/49742337/108608416-e2d5b880-73ee-11eb-8feb-5c24d8133105.PNG)
 
